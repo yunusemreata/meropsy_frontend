@@ -36,14 +36,15 @@ export default function DashboardLayout({
                     >
                         <div className="flex">
                             {/* Sağ taraftaki menüler */}
-                            <aside className="bg-[#242745] w-1/6 p-4 h-content text-white shadow-md">
+                            <aside className="bg-[#242745] w-1/6 p-4 h-screen* text-white shadow-md">
                                 {/* Menü öğeleri burada */}
                                 <div className="flex justify-between items-center mb-6">
                                     <div className="flex items-center">
                                         <img src="/icons/vuexy-logo.svg" alt="brand" className="w-8 h-8 mr-2" />
                                         <span className="text-xl font-bold">Meropsy</span>
                                     </div>
-                                    <img src="/icons/circle-dot.svg" alt="chevron-right" className="w-5 h-5" />
+                                    <img src="/icons/circle-dot.svg" alt="chevron-right" className="w-5 h-5"/>
+                                    
                                 </div>
 
                                 <nav className="space-y-2">
@@ -149,6 +150,7 @@ export default function DashboardLayout({
 
                                     {/* Profil Fotoğrafı */}
                                     <div className="relative w-10 h-10">
+                                        
                                         <Avatar>
                                             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                                             <AvatarFallback>CN</AvatarFallback>

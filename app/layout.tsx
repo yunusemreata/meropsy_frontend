@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { ThemeProvider } from "../src/components/theme-provider"
 
 
+
 export const metadata: Metadata = {
   title: 'Meropsy Social Manager',
   description: 'Meropsy Social Manager',

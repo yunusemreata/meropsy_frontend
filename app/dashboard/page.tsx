@@ -2,8 +2,7 @@ import React from "react";
 
 import { Button } from "@/components/ui/button"
 
-import Chart from "../../src//components/chart/bar_chart";
-
+import { DashboardChart } from '../../src/components/charts/dashboard-chart'
 import {
     Card,
     CardContent,
@@ -229,10 +228,10 @@ export default function Dashboard() {
 
                         </CardContent>
                         <div className="w-full">
-                        <Chart></Chart>
+                            <DashboardChart></DashboardChart>
                         </div>
                     </Card>
-                    
+
                 </div>
             </div>
         </div>

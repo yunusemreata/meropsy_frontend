@@ -59,8 +59,10 @@ export default function Home() {
 
 
   useEffect(() => {
-    if (token) {
+    if (token != '' ) {
       window.location.href = "/dashboard" // bunu nextin kendi yönlendirmesi ile değiştir
+    }else {
+      console.log("token yok")
     }
   }, [])
   
