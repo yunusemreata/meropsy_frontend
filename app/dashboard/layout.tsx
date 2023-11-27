@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 import Link from "next/link"
 import { ThemeProvider } from "@//components/theme-provider"
 import '../globals.css'
@@ -14,15 +15,13 @@ import {
     DropdownMenuTrigger,
 } from "@//components/ui/dropdown-menu"
 
-import React from "react"
+
+import { useRouter } from 'next/navigation'
 
 
 
-export default function DashboardLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
+export default function DashboardLayout({ children: children }: { children: React.ReactNode }) {
+    const router = useRouter();
     return (
         <>
             <html lang="tr" suppressHydrationWarning>
@@ -36,7 +35,7 @@ export default function DashboardLayout({
                     >
                         <div className="flex">
                             {/* Sağ taraftaki menüler */}
-                            <aside className="bg-[#242745] w-1/6 p-4 h-screen* text-white shadow-md">
+                            <aside className="bg-[#242745] w-1/6 p-4 h-screen text-white shadow-md">
                                 {/* Menü öğeleri burada */}
                                 <div className="flex justify-between items-center mb-6">
                                     <div className="flex items-center">
@@ -49,45 +48,48 @@ export default function DashboardLayout({
 
                                 <nav className="space-y-2">
                                     <Link href="/dashboard"
-                                         className="bg-[#2F324E] flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                         className={`flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]`}> 
+                                          {/* ${window.location.pathname === "/dashboard" ? "bg-[#2F324E]" : ""} */}
+                                         {/* ${router.pathname === "/dashboard" ? "bg-[#2F324E]" : ""} */}
                                             <img src="/icons/smart-home.svg" alt="home" className="w-5 h-5" />
                                             <span>Dashboard</span>
                                         
                                     </Link>
-                                    <Link href="/dashboard" className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard" className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/message-circle-2.svg" alt="box" className="w-5 h-5" />
                                             <span>Mesajlar</span>
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard"  className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/id.svg" alt="box" className="w-5 h-5" />
                                             <span>Paylaşımlar</span>
                                          
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard"  className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/calendar.svg" alt="box" className="w-5 h-5" />
                                             <span>Takvim</span> 
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard"  className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/folders.svg" alt="box" className="w-5 h-5" />
                                             <span>Medya Kütüphanesi</span> 
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard"  className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/users.svg" alt="box" className="w-5 h-5" />
                                             <span>Hesaplar</span> 
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard"  className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/id.svg" alt="box" className="w-5 h-5" />
                                             <span>Raporlar</span> 
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard/ayarlar" className={`flex items-center space-x-2 p-2 rounded-md  `}>
+                                    {/* ${window.location.pathname === "/dashboard/ayarlar" ? "bg-[#2F324E]" : ""} */}
                                             <img src="/icons/components.svg" alt="box" className="w-5 h-5" />
                                             <span>Ayarlar</span> 
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard"  className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/color-swatch.svg" alt="box" className="w-5 h-5" />
                                             <span>Kullanıcılar</span> 
                                     </Link>
-                                    <Link href="/dashboard"  className="flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]">
+                                    <Link href="/dashboard"  className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/atom.svg" alt="box" className="w-5 h-5" />
                                             <span>Asistan</span> 
                                     </Link>

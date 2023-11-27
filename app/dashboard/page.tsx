@@ -1,6 +1,10 @@
-import React from "react";
+"use client"
+
+import React, { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button"
+
+import { useRouter } from 'next/navigation'
 
 import { DashboardChart } from '../../src/components/charts/dashboard-chart'
 import {
@@ -12,7 +16,22 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
+
+
 export default function Dashboard() {
+    const router = useRouter()
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            console.log("token: " + localStorage.getItem('token'))
+            console.log("username: " + localStorage.getItem('username'))
+            console.log("firmaActive: " + localStorage.getItem('firmaActive'))
+            console.log("email: " + localStorage.getItem('email'))
+            router.push("/dashboard")
+        }
+    }, [])
+
+
     return (
         <div>
             {/* Takipçi Sayılar */}

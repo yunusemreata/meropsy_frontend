@@ -1,19 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
 import { FormProvider, set, useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../src/components/ui/dropdown-menu"
-
+import { useRouter } from 'next/navigation'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -42,10 +34,10 @@ const formSchema = z.object({
 
 
 export default function Home() {
-  const { setTheme } = useTheme()
-  const methods = useForm()
-
   const [fecthing, setFecthing] = useState(false)
+  const [error, setError] = useState(false)
+  const [loginError, setLoginError] = useState("")
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -55,18 +47,11 @@ export default function Home() {
     },
   })
 
-  const token: string = localStorage.getItem('token') || '';
-
-
   useEffect(() => {
-    if (token != '' ) {
-      window.location.href = "/dashboard" // bunu nextin kendi yönlendirmesi ile değiştir
-    }else {
-      console.log("token yok")
+    if (localStorage.getItem('token')) {
+      //router.push("/dashboard")
     }
   }, [])
-  
-
 
   function onSubmit(values: z.infer<typeof formSchema>) {
 
@@ -83,12 +68,26 @@ export default function Home() {
         .then(response => response.json())
         .then(data => {
           console.log('Success:', data);
+          localStorage.setItem('username', data.name);
+          localStorage.setItem('email', data.email);
           localStorage.setItem('token', data.token);
+          localStorage.setItem('userId', data.userId);
+          localStorage.setItem('firmaActive', data.firmaActive);
+          localStorage.setItem('firmaId', data.firma);
+
+
           setFecthing(false)
+          if (data.message === "Fail") {
+            setError(true)
+            setLoginError("Username or password is incorrect, please try again.")
+          } else {
+            router.push("/dashboard")
+          }
         })
         .catch((error) => {
           console.error('Error:', error);
           setFecthing(false)
+          setError(error)
         });
 
     }
@@ -102,8 +101,8 @@ export default function Home() {
   return (
 
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-      <div className="shadow-md px-5 py-5 bg-white dark:bg-gray-800 rounded w-96">
-        <h1 className="w-full text-3xl font-bold text-center text-gray-900 dark:text-white my-3">
+      <div className="shadow-md px-5 py-5 bg-white rounded w-96">
+        <h1 className="w-full text-3xl font-bold text-center text-gray-900 my-3">
           Login
         </h1>
 
@@ -151,8 +150,13 @@ export default function Home() {
                 :
                 <Button type="submit" variant="default" className="w-full"> Login </Button>
               }
-
             </div>
+            {error ?
+                <div className="text-center text-red-500 mt-2">
+                  {loginError}
+                </div>
+                : null
+              }
           </form>
         </Form>
       </div>
