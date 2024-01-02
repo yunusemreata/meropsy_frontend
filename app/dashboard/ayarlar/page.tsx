@@ -11,7 +11,7 @@ import Link from "next/link"
 
 export default function Ayarlar() {
   return (
-    <div>
+    <>
       <CardTitle className="text-[#4B465C] mb-5">Ayarlar</CardTitle>
 
       <div className="flex flex-row">
@@ -42,14 +42,12 @@ export default function Ayarlar() {
 
         </Card>
 
-
-
         <Card className="w-1/4 shadow-md mb-5 ml-4">
           <CardHeader>
             <div className="flex flex-row justify-between items-center">
               <CardTitle className="text-[#4B465C]">Sifre Ayarları</CardTitle>
               <CardDescription>
-                <div className="rounded-full h-12 w-12 bg-[#28C76F14] flex items-center justify-center mr-2">
+                <div className="rounded-full h-12 w-12 bg-[#EA545514] flex items-center justify-center mr-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <circle cx="8" cy="15" r="4" stroke="#28C76F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M10.8501 12.15L19.0001 4" stroke="#28C76F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -103,7 +101,9 @@ export default function Ayarlar() {
         </Card>
       </div>
 
-    </div>
+   
+
+    </>
   )
 }
 

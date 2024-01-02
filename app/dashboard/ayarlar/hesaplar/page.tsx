@@ -198,6 +198,7 @@ export default function Hesaplar() {
                                                 <label className="block text-gray-700 text-sm mb-2 text-[#4B465C] mt-5" htmlFor="companyname">
                                                     Facebook Api Key
                                                 </label>
+                                                
                                                 <input className="bg-[#FFFFFF] shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
                                                     id="companyname" type="text" placeholder="Firma Adı" />
                                             </div>

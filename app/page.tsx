@@ -76,8 +76,9 @@ export default function Home() {
           localStorage.setItem('firmaId', data.firma);
 
 
-          setFecthing(false)
+          //setFecthing(false)
           if (data.message === "Fail") {
+            setFecthing(false)
             setError(true)
             setLoginError("Username or password is incorrect, please try again.")
           } else {
