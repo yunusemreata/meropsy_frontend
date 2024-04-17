@@ -182,7 +182,7 @@ export default function Paylasimlar() {
                                 <input className="w-1/5 block w-full bg-white border border-gray-200 hover:border-gray-300 py-3 px-4 pr-8 rounded shadow focus:outline-none focus:shadow-outline"
                                     placeholder='Ara'>
                                 </input>
-                                <a href='/dashboard/paylasimlar/yeni_paylasim' className="mx-3 w-1/5 block w-full bg-[#7367F0] hover:bg-[#7367F0] py-3 px-4 pr-8 rounded shadow focus:outline-none focus:shadow-outline">
+                                <a href='/dashboard/paylasimlar/yeni_paylasim_test' className="mx-3 w-1/5 block w-full bg-[#7367F0] hover:bg-[#7367F0] py-3 px-4 pr-8 rounded shadow focus:outline-none focus:shadow-outline">
                                     <p className='text-white flex flex-row justify-center align-center'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" className='mr-2 mt-1'>
                                             <path d="M9 3.75V14.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

@@ -55,7 +55,7 @@ export default function DashboardLayout({ children: children }: { children: Reac
                                             <span>Dashboard</span>
                                         
                                     </Link>
-                                    <Link href="/dashboard" className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
+                                    <Link href="/dashboard/mesajlar" className={'flex items-center space-x-2 p-2 rounded-md hover:bg-[#2F324E]'}>
                                             <img src="/icons/message-circle-2.svg" alt="box" className="w-5 h-5" />
                                             <span>Mesajlar</span>
                                     </Link>
