@@ -91,7 +91,7 @@ export default function Mesajlar() {
 
   return (
     <div>
-      
+      bu mesaj sayfası
     </div>
   );
 }

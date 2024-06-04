@@ -33,7 +33,7 @@ function UploadForm() {
         try {
             const response = await fetch('https://meropsybackend-production.up.railway.app/instagram/upload-post/' + userId, {
                 method: 'POST',
-                credentials: 'include',
+                credentials: 'omit',
                 body: formData
             });
             const data = await response.json();
